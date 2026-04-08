@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.healthcare.medicationtracker.service.ReminderServiceTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 11.25 s -- in com.healthcare.medicationtracker.service.ReminderServiceTest

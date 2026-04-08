@@ -1,0 +1,56 @@
+.reminder-list-container {
+  padding: 20px;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+
+    h1 {
+      margin: 0;
+      color: #333;
+    }
+  }
+
+  mat-form-field {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  mat-table {
+    width: 100%;
+    background: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    mat-header-cell {
+      background: #f5f5f5;
+      color: #333;
+      font-weight: bold;
+    }
+
+    mat-cell {
+      color: #666;
+    }
+
+    .mat-column-actions {
+      width: 80px;
+      text-align: right;
+    }
+
+    .mat-column-status {
+      width: 120px;
+    }
+  }
+
+  mat-chip {
+    min-width: 80px;
+    justify-content: center;
+  }
+
+  .no-data-row {
+    padding: 20px;
+    text-align: center;
+    color: #666;
+  }
+}

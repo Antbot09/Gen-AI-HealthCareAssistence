@@ -1,0 +1,92 @@
+<div class="add-reminder-container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Add New Medication Reminder</mat-card-title>
+    </mat-card-header>
+    
+    <mat-card-content>
+      <form [formGroup]="reminderForm" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="fill">
+          <mat-label>Medication Name</mat-label>
+          <input matInput formControlName="medicationName" required>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Dosage</mat-label>
+          <input matInput formControlName="dosage" required 
+                 placeholder="e.g., 10mg">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Frequency</mat-label>
+          <mat-select formControlName="frequency" required>
+            <mat-option value="DAILY">Daily</mat-option>
+            <mat-option value="TWICE_DAILY">Twice Daily</mat-option>
+            <mat-option value="WEEKLY">Weekly</mat-option>
+            <mat-option value="MONTHLY">Monthly</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <div class="interval-fields">
+          <mat-form-field appearance="fill" class="interval-field">
+            <mat-label>Interval Hours</mat-label>
+            <input matInput type="number" formControlName="intervalHours" min="0"
+                   placeholder="Hours">
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" class="interval-field">
+            <mat-label>Interval Minutes</mat-label>
+            <input matInput type="number" formControlName="intervalMinutes" min="0" max="59"
+                   placeholder="Minutes">
+          </mat-form-field>
+          <mat-hint class="interval-hint">Set reminder interval (leave both empty for non-recurring reminders)</mat-hint>
+        </div>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Start Date</mat-label>
+          <input matInput [matDatepicker]="startPicker" formControlName="startDate" required>
+          <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
+          <mat-datepicker #startPicker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>End Date</mat-label>
+          <input matInput [matDatepicker]="endPicker" formControlName="endDate">
+          <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
+          <mat-datepicker #endPicker></mat-datepicker>
+          <mat-hint>Optional: Leave empty for ongoing medication</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Email for Reminders</mat-label>
+          <input matInput type="email" formControlName="email" required 
+                 placeholder="Enter your email address">
+          <mat-error *ngIf="reminderForm.get('email')?.hasError('required')">
+            Email is required
+          </mat-error>
+          <mat-error *ngIf="reminderForm.get('email')?.hasError('email')">
+            Please enter a valid email address
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Instructions</mat-label>
+          <textarea matInput formControlName="instructions" rows="2"
+                    placeholder="Special instructions for taking this medication"></textarea>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Notes</mat-label>
+          <textarea matInput formControlName="notes" rows="2"
+                    placeholder="Any additional notes"></textarea>
+        </mat-form-field>
+
+        <div class="button-container">
+          <button mat-raised-button color="primary" type="submit" [disabled]="!reminderForm.valid">
+            Add Reminder
+          </button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

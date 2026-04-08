@@ -1,0 +1,56 @@
+<div class="dashboard-container">
+  <h1>Dashboard</h1>
+
+  <div class="summary-cards">
+    <mat-card class="summary-card">
+      <mat-card-header>
+        <mat-card-title>Active Medications</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="stat">{{activeMedications}}</div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="summary-card">
+      <mat-card-header>
+        <mat-card-title>Due Today</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="stat">{{dueToday}}</div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="summary-card">
+      <mat-card-header>
+        <mat-card-title>Taken Today</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="stat">{{takenToday}}</div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div class="upcoming-reminders">
+    <h2>Upcoming Reminders</h2>
+    <mat-card *ngIf="upcomingReminders.length === 0" class="no-reminders">
+      <mat-card-content>
+        No upcoming reminders. Click "Add Reminder" to create one.
+      </mat-card-content>
+    </mat-card>
+    
+    <mat-card *ngFor="let reminder of upcomingReminders" class="reminder-card">
+      <mat-card-header>
+        <mat-card-title>{{reminder.medicationName}}</mat-card-title>
+        <mat-card-subtitle>Due: {{reminder.nextDueTime | date:'short'}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p><strong>Dosage:</strong> {{reminder.dosage}}</p>
+        <p><strong>Instructions:</strong> {{reminder.instructions}}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button color="primary" (click)="markAsTaken(reminder.id)">MARK AS TAKEN</button>
+        <button mat-button [routerLink]="['/medication-info', reminder.medicationName]">MORE INFO</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

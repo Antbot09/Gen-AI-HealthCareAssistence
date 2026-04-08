@@ -1,0 +1,11 @@
+<mat-toolbar color="primary">
+  <span>Healthcare Assistant</span>
+  <span class="spacer"></span>
+  <button mat-button routerLink="/dashboard" routerLinkActive="active">Dashboard</button>
+  <button mat-button routerLink="/reminders" routerLinkActive="active">Reminders</button>
+  <button mat-button routerLink="/add-reminder" routerLinkActive="active">Add Reminder</button>
+</mat-toolbar>
+
+<div class="content">
+  <router-outlet></router-outlet>
+</div>

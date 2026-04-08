@@ -1,0 +1,8 @@
+com\healthcare\medicationtracker\config\GeminiConfig.class
+com\healthcare\medicationtracker\MedicationTrackerApplication.class
+com\healthcare\medicationtracker\controller\GeminiAIController.class
+com\healthcare\medicationtracker\model\Reminder.class
+com\healthcare\medicationtracker\service\ReminderService.class
+com\healthcare\medicationtracker\repository\ReminderRepository.class
+com\healthcare\medicationtracker\controller\ReminderController.class
+com\healthcare\medicationtracker\service\GeminiAIService.class
